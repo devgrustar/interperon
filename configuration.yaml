@@ -9,7 +9,7 @@ pipeline:
   use_planner: false
   render_from_object: true
   refinement_enabled: false
-  seed_offset: 5600037
+  seed_offset: 5700037
   coder_probe:
     enabled: true
     concurrency: 48
@@ -43,8 +43,8 @@ llm_clients:
     base_url: "http://localhost:8001/v1"
     api_key: "local"
     vllm:
-      model: "magicworld7/Qwen-3.6-27B-Merlin"
-      revision: "5c294550b5cb3c7082ea5510d11d32766864a74b"
+      model: "magicworld7/Qwen-3.6-27B-Peregrine"
+      revision: "136720696c25d9aa68b2df06e953c6d36375c090"
       gpu_ids: "0,1"
       tensor_parallel_size: 1
       data_parallel_size: 2
@@ -95,7 +95,7 @@ embedder:
 actors:
   planner:
     client: "coder-instance"
-    model: "magicworld7/Qwen-3.6-27B-Merlin"
+    model: "magicworld7/Qwen-3.6-27B-Peregrine"
     workers: 256
     queue_size: 128
     max_tokens: 32768
@@ -113,7 +113,7 @@ actors:
       allow_fallbacks: true
   coder:
     client: "coder-instance"
-    model: "magicworld7/Qwen-3.6-27B-Merlin"
+    model: "magicworld7/Qwen-3.6-27B-Peregrine"
     workers: 96
     queue_size: 64
     max_tokens: 24576
